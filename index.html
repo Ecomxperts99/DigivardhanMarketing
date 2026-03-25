@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="mr">
 <head>
@@ -280,13 +281,13 @@ section { padding: 90px 5%; }
   gap: 64px; align-items: center; max-width: 1200px; margin: 0 auto;
 }
 .about-img-wrap {
-  position: relative;
+  position: relative; aspect-ratio: 3/4; overflow: hidden;
+  border: 1px solid var(--border); border-radius: 2px;
+  max-height: 480px; width: 100%;
 }
 .about-img-placeholder {
-  width: 100%; aspect-ratio: 4/5;
+  width: 100%; height: 100%;
   background: var(--dark3);
-  border: 1px solid var(--border);
-  border-radius: 2px;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   gap: 12px; color: var(--text-muted);
@@ -716,9 +717,21 @@ footer {
 <section id="about">
   <div class="about-grid">
     <div class="about-img-wrap reveal-left">
-      <div class="about-img-placeholder">
+      <!-- ============================================================
+           📸 ABOUT SECTION IMAGE
+           Replace the src below with your photo path or URL.
+           Example: src="images/keshav-photo.jpg"
+                 or src="https://yourwebsite.com/photo.jpg"
+      ============================================================ -->
+      <img
+        src="https://blogger.googleusercontent.com/img/a/AVvXsEihK_W_P6vjsnA3_8-qYp-DwfIEMHfwwtjJIGhcmV1k2mWFEgn1va6waUnX5ps1jeluGJfPku00K6j74_PMTKy4yymL6KFTiGLw0o_czMYb9dcyiohw6HovyAWuEgvzqrDX1vuH4bqeRba7--I-2bpX4BHuPcf-v7ZwYWEgTTpmGoY9ONmgYEfP8Xpd3vI"
+        alt="Keshav Nachivnekar – DigiVardhan Marketing"
+        style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;border-radius:2px;"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+      />
+      <div class="about-img-placeholder" style="display:none;position:absolute;inset:0;">
         <span>🧑‍💼</span>
-     <img src="https://blogger.googleusercontent.com/img/a/AVvXsEihK_W_P6vjsnA3_8-qYp-DwfIEMHfwwtjJIGhcmV1k2mWFEgn1va6waUnX5ps1jeluGJfPku00K6j74_PMTKy4yymL6KFTiGLw0o_czMYb9dcyiohw6HovyAWuEgvzqrDX1vuH4bqeRba7--I-2bpX4BHuPcf-v7ZwYWEgTTpmGoY9ONmgYEfP8Xpd3vI">
+        <p style="font-size:.8rem;color:var(--text-muted);text-align:center;">Replace <code style="background:rgba(255,255,255,.1);padding:2px 6px;border-radius:3px;font-size:.75rem;">src="YOUR_ABOUT_IMAGE_PATH_HERE.jpg"</code><br>with your image path</p>
       </div>
       <div class="about-corner tl"></div>
       <div class="about-corner br"></div>
@@ -892,13 +905,43 @@ footer {
     <div class="gold-divider"></div>
   </div>
   <div class="gallery-grid">
-    <div class="gallery-img-wrap reveal-left">
-      <span>🖼️</span>
-      <p>Upload Campaign Image 1</p>
+    <div class="gallery-img-wrap reveal-left" style="position:relative;overflow:hidden;padding:0;">
+      <!-- ============================================================
+           📸 GALLERY IMAGE 1
+           Replace the src below with your campaign image path or URL.
+           Example: src="images/campaign1.jpg"
+      ============================================================ -->
+      <img
+        src="YOUR_GALLERY_IMAGE_1_PATH_HERE.jpg"
+        alt="DigiVardhan Campaign Work 1"
+        style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;"
+        onmouseover="this.style.transform='scale(1.04)'"
+        onmouseout="this.style.transform='scale(1)'"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+      />
+      <div style="display:none;flex-direction:column;align-items:center;justify-content:center;gap:10px;width:100%;height:100%;position:absolute;inset:0;color:var(--text-muted);">
+        <span style="font-size:2.5rem">🖼️</span>
+        <p style="font-size:.8rem;text-align:center;">Replace <code style="background:rgba(255,255,255,.1);padding:2px 6px;border-radius:3px;">YOUR_GALLERY_IMAGE_1_PATH_HERE.jpg</code></p>
+      </div>
     </div>
-    <div class="gallery-img-wrap reveal-right">
-      <span>🖼️</span>
-      <p>Upload Campaign Image 2</p>
+    <div class="gallery-img-wrap reveal-right" style="position:relative;overflow:hidden;padding:0;">
+      <!-- ============================================================
+           📸 GALLERY IMAGE 2
+           Replace the src below with your campaign image path or URL.
+           Example: src="images/campaign2.jpg"
+      ============================================================ -->
+      <img
+        src="YOUR_GALLERY_IMAGE_2_PATH_HERE.jpg"
+        alt="DigiVardhan Campaign Work 2"
+        style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;"
+        onmouseover="this.style.transform='scale(1.04)'"
+        onmouseout="this.style.transform='scale(1)'"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+      />
+      <div style="display:none;flex-direction:column;align-items:center;justify-content:center;gap:10px;width:100%;height:100%;position:absolute;inset:0;color:var(--text-muted);">
+        <span style="font-size:2.5rem">🖼️</span>
+        <p style="font-size:.8rem;text-align:center;">Replace <code style="background:rgba(255,255,255,.1);padding:2px 6px;border-radius:3px;">YOUR_GALLERY_IMAGE_2_PATH_HERE.jpg</code></p>
+      </div>
     </div>
   </div>
   <div style="text-align:center" class="reveal">
