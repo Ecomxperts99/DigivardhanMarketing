@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DigiVardhan Marketing – Political Digital Campaigns</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Tiro+Devanagari+Marathi:ital@0;1&family=Bebas+Neue&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue: #0077e6;
+  --blue-light: #1ab3ff;
+  --blue-dark: #003a8c;
+  --navy: #0a1f44;
+  --gold: #f7c948;
+  --white: #ffffff;
+  --off-white: #f0f6ff;
+  --gray: #94a3b8;
+  --bg-dark: #05102a;
+  --glow: 0 0 30px rgba(0,119,230,0.4);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--bg-dark);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* ─── NAVBAR ─── */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 1000;
+  background: rgba(5,16,42,0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,119,230,0.2);
+  padding: 12px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo img { height: 52px; }
+.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links a { color: var(--white); text-decoration: none; font-weight: 600; font-size: 14px; letter-spacing: 0.5px; transition: color 0.3s; }
+.nav-links a:hover { color: var(--blue-light); }
+.nav-cta {
+  background: linear-gradient(135deg, var(--blue), var(--blue-light));
+  color: var(--white); border: none; padding: 10px 22px;
+  border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 14px;
+  text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+}
+.nav-cta:hover { transform: translateY(-2px); box-shadow: var(--glow); }
+
+/* ─── HERO ─── */
+#hero {
+  min-height: 100vh;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,119,230,0.25) 0%, transparent 70%),
+              linear-gradient(180deg, #05102a 0%, #0a1f44 50%, #05102a 100%);
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 120px 20px 80px;
+  position: relative; overflow: hidden;
+}
+#hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230077e6' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.4;
+}
+.hero-content { position: relative; z-index: 2; max-width: 900px; }
+.hero-logo { height: 100px; margin-bottom: 20px; filter: drop-shadow(0 0 20px rgba(0,119,230,0.5)); animation: float 3s ease-in-out infinite; }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+
+.hero-tagline-mr {
+  font-family: 'Tiro Devanagari Marathi', serif;
+  font-size: clamp(22px, 4vw, 36px);
+  color: var(--gold);
+  margin-bottom: 10px;
+  text-shadow: 0 0 30px rgba(247,201,72,0.4);
+  animation: fadeUp 0.8s ease both;
+}
+.hero-sub-mr {
+  font-family: 'Tiro Devanagari Marathi', serif;
+  font-size: clamp(14px, 2vw, 18px);
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 30px;
+  line-height: 1.7;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
+.hero-heading {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(42px, 8vw, 88px);
+  letter-spacing: 3px;
+  background: linear-gradient(135deg, var(--white) 30%, var(--blue-light) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  line-height: 1; margin-bottom: 16px;
+  animation: fadeUp 0.8s 0.3s ease both;
+}
+.hero-subheading {
+  font-size: clamp(13px, 2vw, 18px);
+  color: var(--blue-light);
+  letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 30px;
+  animation: fadeUp 0.8s 0.4s ease both;
+}
+.hero-desc {
+  font-size: 16px; color: rgba(255,255,255,0.7);
+  max-width: 600px; margin: 0 auto 40px;
+  animation: fadeUp 0.8s 0.5s ease both;
+}
+.hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; animation: fadeUp 0.8s 0.6s ease both; }
+.btn-primary {
+  background: linear-gradient(135deg, var(--blue), var(--blue-light));
+  color: var(--white); border: none; padding: 15px 32px;
+  border-radius: 50px; font-weight: 800; font-size: 15px;
+  cursor: pointer; text-decoration: none; transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(0,119,230,0.4);
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,119,230,0.6); }
+.btn-secondary {
+  background: transparent;
+  color: var(--white); border: 2px solid var(--blue-light); padding: 13px 30px;
+  border-radius: 50px; font-weight: 700; font-size: 15px;
+  cursor: pointer; text-decoration: none; transition: all 0.3s;
+}
+.btn-secondary:hover { background: rgba(0,119,230,0.15); transform: translateY(-3px); }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+
+/* ─── SECTION BASE ─── */
+section { padding: 90px 40px; }
+.section-label {
+  font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--blue-light); font-weight: 700; margin-bottom: 12px;
+}
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(36px, 5vw, 60px);
+  letter-spacing: 2px; line-height: 1.1;
+  background: linear-gradient(135deg, var(--white) 40%, var(--blue-light));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  margin-bottom: 16px;
+}
+.section-sub {
+  color: var(--gray); font-size: 16px; max-width: 560px; line-height: 1.7;
+}
+.divider {
+  width: 60px; height: 4px; border-radius: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--blue-light));
+  margin: 16px 0 32px;
+}
+
+/* ─── ABOUT ─── */
+#about {
+  background: linear-gradient(135deg, #071428 0%, #0a1f44 100%);
+}
+.about-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.about-image-wrap { position: relative; }
+.about-image-wrap img {
+  width: 100%; border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  border: 2px solid rgba(0,119,230,0.3);
+}
+.about-badge {
+  position: absolute; bottom: -16px; right: -16px;
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  padding: 16px 20px; border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,119,230,0.4);
+  text-align: center;
+}
+.about-badge .num { font-family: 'Bebas Neue'; font-size: 40px; color: var(--gold); line-height: 1; }
+.about-badge .lbl { font-size: 11px; color: rgba(255,255,255,0.8); letter-spacing: 1px; }
+.about-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 32px; }
+.stat-box { background: rgba(0,119,230,0.1); border: 1px solid rgba(0,119,230,0.2); border-radius: 12px; padding: 16px; text-align: center; }
+.stat-num { font-family: 'Bebas Neue'; font-size: 32px; color: var(--blue-light); }
+.stat-lbl { font-size: 11px; color: var(--gray); letter-spacing: 0.5px; }
+.about-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.tag { background: rgba(0,119,230,0.15); border: 1px solid rgba(0,119,230,0.3); color: var(--blue-light); padding: 6px 14px; border-radius: 50px; font-size: 13px; font-weight: 600; }
+
+/* ─── DOCUMENTARY ─── */
+#documentary {
+  background: #030d1e;
+  text-align: center;
+}
+.doc-wrap { max-width: 900px; margin: 0 auto; }
+.doc-player {
+  position: relative; width: 100%; padding-top: 56.25%;
+  border-radius: 20px; overflow: hidden;
+  box-shadow: 0 20px 80px rgba(0,119,230,0.3);
+  border: 2px solid rgba(0,119,230,0.4);
+}
+.doc-player iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
+.doc-title-mr {
+  font-family: 'Tiro Devanagari Marathi', serif;
+  font-size: clamp(18px, 3vw, 26px);
+  color: var(--gold); margin-bottom: 12px;
+}
+
+/* ─── SERVICES ─── */
+#services {
+  background: var(--bg-dark);
+}
+.services-grid { max-width: 1100px; margin: 40px auto 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+.service-card {
+  background: linear-gradient(145deg, rgba(0,119,230,0.08), rgba(0,60,150,0.12));
+  border: 1px solid rgba(0,119,230,0.2);
+  border-radius: 16px; padding: 28px 22px;
+  transition: all 0.3s; cursor: default; position: relative; overflow: hidden;
+}
+.service-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--blue-light));
+  opacity: 0; transition: opacity 0.3s;
+}
+.service-card:hover { transform: translateY(-6px); border-color: rgba(0,119,230,0.5); box-shadow: 0 12px 40px rgba(0,119,230,0.2); }
+.service-card:hover::before { opacity: 1; }
+.service-icon { font-size: 36px; margin-bottom: 14px; display: block; }
+.service-name { font-weight: 700; font-size: 15px; margin-bottom: 8px; color: var(--white); }
+.service-desc { font-size: 13px; color: var(--gray); line-height: 1.6; }
+
+/* ─── VIDEO SHORTS SECTION ─── */
+#shorts {
+  background: linear-gradient(180deg, #030d1e 0%, #071428 100%);
+}
+.shorts-tabs { display: flex; gap: 12px; margin-bottom: 36px; flex-wrap: wrap; }
+.shorts-tab {
+  padding: 10px 22px; border-radius: 50px; border: 2px solid rgba(0,119,230,0.3);
+  background: transparent; color: var(--gray); font-weight: 700; font-size: 13px;
+  cursor: pointer; transition: all 0.3s;
+}
+.shorts-tab.active, .shorts-tab:hover { background: var(--blue); border-color: var(--blue); color: var(--white); }
+.shorts-slides { max-width: 1100px; margin: 0 auto; }
+.shorts-slide { display: none; }
+.shorts-slide.active { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; animation: fadeUp 0.4s ease; }
+.short-vid {
+  border-radius: 16px; overflow: hidden;
+  border: 2px solid rgba(0,119,230,0.2);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  position: relative;
+  padding-top: 177%; /* 9:16 */
+  background: #0a1f44;
+}
+.short-vid iframe {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+}
+
+/* ─── WINNING CANDIDATES ─── */
+#candidates {
+  background: #030d1e;
+}
+.cand-grid { max-width: 1100px; margin: 40px auto 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
+.cand-card { text-align: center; }
+.cand-img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 16px; border: 2px solid rgba(0,119,230,0.3); margin-bottom: 10px; filter: grayscale(20%); transition: all 0.3s; }
+.cand-img:hover { filter: none; border-color: var(--blue-light); transform: scale(1.03); }
+.cand-name { font-family: 'Rajdhani'; font-size: 15px; font-weight: 700; color: var(--gold); }
+.cand-title { font-size: 12px; color: var(--gray); }
+
+/* ─── NETWORK ─── */
+#network {
+  background: linear-gradient(135deg, #071428, #030d1e);
+}
+.network-head { text-align: center; margin-bottom: 50px; }
+.network-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
+.net-card { background: rgba(0,119,230,0.06); border: 1px solid rgba(0,119,230,0.15); border-radius: 12px; overflow: hidden; text-align: center; padding-bottom: 12px; transition: all 0.3s; }
+.net-card:hover { border-color: rgba(0,119,230,0.4); transform: translateY(-4px); }
+.net-img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+.net-name { font-size: 13px; font-weight: 700; color: var(--white); padding: 8px 6px 2px; font-family: 'Rajdhani'; }
+.net-pos { font-size: 11px; color: var(--blue-light); padding: 0 6px; }
+
+/* ─── CONTACT ─── */
+#contact {
+  background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(0,119,230,0.2) 0%, transparent 70%),
+              linear-gradient(180deg, #030d1e, #05102a);
+  text-align: center;
+}
+.contact-box { max-width: 600px; margin: 0 auto; }
+.contact-name { font-family: 'Bebas Neue'; font-size: 56px; letter-spacing: 3px; background: linear-gradient(135deg, var(--white), var(--blue-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.contact-phone { font-size: 32px; font-weight: 800; color: var(--gold); margin: 10px 0 30px; letter-spacing: 2px; }
+.contact-btns { display: flex; gap: 16px; justify-content: center; }
+.btn-wa {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: var(--white); border: none; padding: 16px 36px;
+  border-radius: 50px; font-weight: 800; font-size: 16px;
+  cursor: pointer; text-decoration: none; transition: all 0.3s;
+  display: flex; align-items: center; gap: 10px;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+}
+.btn-wa:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(37,211,102,0.5); }
+.btn-call {
+  background: linear-gradient(135deg, var(--blue), var(--blue-light));
+  color: var(--white); border: none; padding: 16px 36px;
+  border-radius: 50px; font-weight: 800; font-size: 16px;
+  cursor: pointer; text-decoration: none; transition: all 0.3s;
+  display: flex; align-items: center; gap: 10px;
+  box-shadow: 0 4px 20px rgba(0,119,230,0.4);
+}
+.btn-call:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,119,230,0.6); }
+
+/* ─── FINAL QUOTE ─── */
+.final-quote {
+  text-align: center; padding: 60px 40px;
+  background: #030d1e;
+  border-top: 1px solid rgba(0,119,230,0.15);
+}
+.final-quote blockquote {
+  font-family: 'Tiro Devanagari Marathi', serif;
+  font-size: clamp(20px, 3.5vw, 32px);
+  color: var(--gold);
+  max-width: 700px; margin: 0 auto;
+  text-shadow: 0 0 30px rgba(247,201,72,0.3);
+  line-height: 1.6;
+}
+.final-quote blockquote::before { content: '"'; font-size: 80px; color: rgba(0,119,230,0.3); display: block; line-height: 0.5; margin-bottom: 20px; }
+
+/* ─── STICKY BUTTONS ─── */
+.sticky-actions {
+  position: fixed; bottom: 24px; right: 24px;
+  display: flex; flex-direction: column; gap: 12px; z-index: 999;
+}
+.sticky-wa, .sticky-call {
+  width: 56px; height: 56px; border-radius: 50%; border: none;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; cursor: pointer; text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4); transition: all 0.3s;
+}
+.sticky-wa { background: linear-gradient(135deg, #25d366, #128c7e); }
+.sticky-call { background: linear-gradient(135deg, var(--blue), var(--blue-light)); }
+.sticky-wa:hover, .sticky-call:hover { transform: scale(1.15); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: #020a18; padding: 24px 40px;
+  text-align: center; color: rgba(255,255,255,0.4); font-size: 13px;
+  border-top: 1px solid rgba(0,119,230,0.1);
+}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width: 768px) {
+  nav { padding: 10px 20px; }
+  .nav-links { display: none; }
+  section { padding: 60px 20px; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-badge { right: 0; }
+  .shorts-slide.active { grid-template-columns: 1fr; }
+  .short-vid { padding-top: 177%; }
+  .contact-btns { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="https://i.imgur.com/placeholder.png" id="navLogo" alt="DigiVardhan Marketing">
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#documentary">Documentary</a></li>
+    <li><a href="#candidates">Clients</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/919673967679" class="nav-cta" target="_blank">📲 WhatsApp Us</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-content">
+    <img id="heroLogo" src="" alt="DigiVardhan Marketing" class="hero-logo">
+    <p class="hero-tagline-mr">आपल्या प्रचाराला विजयाकडे नेणारी डिजिटल रणनीती 🚀</p>
+    <p class="hero-sub-mr">मतदारांपर्यंत प्रभावी पोहोच, मजबूत प्रतिमा आणि विजयी कॅम्पेनसाठी संपूर्ण डिजिटल सपोर्ट</p>
+    <h1 class="hero-heading">Political Digital<br>Campaign Content</h1>
+    <p class="hero-subheading">AI Campaign Videos · Cinematic Reels · Motion Graphics · Political Social Media Content</p>
+    <p class="hero-desc">Modern digital campaign content designed for political leaders and candidates.</p>
+    <div class="hero-btns">
+      <a href="#shorts" class="btn-primary">👉 View Campaign Content</a>
+      <a href="#contact" class="btn-secondary">📞 Contact for Campaign Promotion</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-image-wrap">
+      <img id="aboutImg" src="" alt="Keshav Nachivnekar – Founder DigiVardhan Marketing">
+      <div class="about-badge">
+        <div class="num">6+</div>
+        <div class="lbl">Years of<br>Experience</div>
+      </div>
+    </div>
+    <div>
+      <p class="section-label">About DigiVardhan Marketing</p>
+      <h2 class="section-title">Power Meets Vision</h2>
+      <div class="divider"></div>
+      <p class="section-sub">DigiVardhan Marketing creates modern digital campaign content for political leaders and candidates. Our focus is on powerful social media content that helps leaders connect with voters and build a strong digital presence.</p>
+      <div class="about-stats">
+        <div class="stat-box"><div class="stat-num">6+</div><div class="stat-lbl">Years Experience</div></div>
+        <div class="stat-box"><div class="stat-num">4+</div><div class="stat-lbl">Years Political Campaigns</div></div>
+        <div class="stat-box"><div class="stat-num">10+</div><div class="stat-lbl">Winning Candidates</div></div>
+      </div>
+      <div class="about-tags" style="margin-top:20px">
+        <span class="tag">Political Strategy</span>
+        <span class="tag">Digital Campaigns</span>
+        <span class="tag">Public Relations</span>
+        <span class="tag">AI Content</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCUMENTARY -->
+<section id="documentary">
+  <div class="doc-wrap">
+    <p class="section-label" style="text-align:center">Our Work</p>
+    <h2 class="section-title" style="-webkit-text-fill-color:unset;color:var(--white);margin-bottom:8px">Campaign <span style="color:var(--blue-light)">Documentary</span></h2>
+    <p class="doc-title-mr" style="margin-top:8px">आमच्या प्रचार कार्याचा संपूर्ण आढावा</p>
+    <div class="divider" style="margin:16px auto 32px"></div>
+    <div class="doc-player">
+      <iframe src="https://www.youtube.com/embed/kimtK-glQ8c?si=KYPRWdHX0NrZlNqW" title="DigiVardhan Marketing Documentary" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div style="max-width:1100px;margin:0 auto">
+    <p class="section-label">What We Offer</p>
+    <h2 class="section-title">Campaign Content<br>Categories</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card"><span class="service-icon">🤖</span><div class="service-name">AI Campaign Videos</div><div class="service-desc">Cutting-edge AI-generated campaign videos to powerfully represent your vision.</div></div>
+    <div class="service-card"><span class="service-icon">🎬</span><div class="service-name">Cinematic Campaign Reels</div><div class="service-desc">Cinematic-quality reels that tell your political story with impact.</div></div>
+    <div class="service-card"><span class="service-icon">✨</span><div class="service-name">Motion Graphics Reels</div><div class="service-desc">Dynamic motion graphics designed for maximum social media engagement.</div></div>
+    <div class="service-card"><span class="service-icon">🖼️</span><div class="service-name">Political Posters & Graphics</div><div class="service-desc">Eye-catching poster designs and social media graphics that stand out.</div></div>
+    <div class="service-card"><span class="service-icon">🎙️</span><div class="service-name">Voice Over Campaign Videos</div><div class="service-desc">Professional voice-over campaign videos for broad voter reach.</div></div>
+    <div class="service-card"><span class="service-icon">📢</span><div class="service-name">Public Appeal Videos</div><div class="service-desc">Compelling public appeal content that resonates with your constituency.</div></div>
+    <div class="service-card"><span class="service-icon">🎥</span><div class="service-name">Documentary</div><div class="service-desc">Full-length campaign documentaries to showcase your journey and vision.</div></div>
+    <div class="service-card"><span class="service-icon">🔊</span><div class="service-name">Audio on Rickshaw & AI Song</div><div class="service-desc">Ground-level audio campaigns and AI-generated political songs.</div></div>
+    <div class="service-card"><span class="service-icon">🏅</span><div class="service-name">Candidate Logo</div><div class="service-desc">Professional logo and brand identity design for political candidates.</div></div>
+  </div>
+</section>
+
+<!-- SHORT VIDEOS -->
+<section id="shorts">
+  <div style="max-width:1100px;margin:0 auto">
+    <p class="section-label">Campaign Reels</p>
+    <h2 class="section-title">Our Campaign<br>Short Videos</h2>
+    <div class="divider"></div>
+    <div class="shorts-tabs">
+      <button class="shorts-tab active" onclick="showSlide(0)">AI Campaign Videos</button>
+      <button class="shorts-tab" onclick="showSlide(1)">Cinematic Reels</button>
+      <button class="shorts-tab" onclick="showSlide(2)">Motion Graphics</button>
+    </div>
+    <div class="shorts-slides">
+      <div class="shorts-slide active" id="slide-0">
+        <div class="short-vid"><iframe src="https://www.youtube.com/embed/w0kNoIbBauY" title="Campaign Video 1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+        <div class="short-vid"><iframe src="https://www.youtube.com/embed/w0kNoIbBauY" title="Campaign Video 2" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+        <div class="short-vid"><iframe src="https://www.youtube.com/embed/w0kNoIbBauY" title="Campaign Video 3" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+      </div>
+      <div class="shorts-slide" id="slide-1">
+        <div class="short-vid"><iframe src="https://www.youtube.com/embed/w0kNoIbBauY" title="Reel 1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+        <div class="short-vid"><iframe src="https://www.youtube.com/embed/w0kNoIbBauY" title="Reel 2" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+        <div class="short-vid"><iframe src="https://www.youtube.com/embed/w0kNoIbBauY" title="Reel 3" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+      </div>
+      <div class="shorts-slide" id="slide-2">
+        <div class="short-vid"><iframe src="https://www.youtube.com/embed/w0kNoIbBauY" title="Motion 1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+        <div class="short-vid"><iframe src="https://www.youtube.com/embed/w0kNoIbBauY" title="Motion 2" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+        <div class="short-vid"><iframe src="https://www.youtube.com/embed/w0kNoIbBauY" title="Motion 3" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WINNING CANDIDATES -->
+<section id="candidates">
+  <div style="max-width:1100px;margin:0 auto">
+    <p class="section-label">Our Proven Track Record</p>
+    <h2 class="section-title">Winning Candidates<br>Associated With Our Campaigns</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="cand-grid" id="candidateGrid"></div>
+</section>
+
+<!-- NETWORK -->
+<section id="network">
+  <div class="network-head">
+    <p class="section-label">Strong Political Network &amp; Ground Experience</p>
+    <h2 class="section-title">Our Political<br>Network</h2>
+    <div class="divider" style="margin:16px auto"></div>
+  </div>
+  <div class="network-grid" id="networkGrid"></div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-box">
+    <p class="section-label">Get In Touch</p>
+    <h2 class="section-title" style="-webkit-text-fill-color:unset;color:var(--white)">Campaign Content for<br><span style="color:var(--blue-light)">Political Leaders</span></h2>
+    <div class="divider" style="margin:16px auto 24px"></div>
+    <div class="contact-name">📞 Keshav Nachivnekar</div>
+    <div class="contact-phone">9673967679</div>
+    <div class="contact-btns">
+      <a href="https://wa.me/919673967679" class="btn-wa" target="_blank">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+      <a href="tel:+919673967679" class="btn-call">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        Call Now
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL QUOTE -->
+<div class="final-quote">
+  <blockquote>"रणनीती योग्य असेल, तर विजय निश्चित आहे."</blockquote>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 DigiVardhan Marketing. All rights reserved. | Power Meets Vision</p>
+</footer>
+
+<!-- STICKY BUTTONS -->
+<div class="sticky-actions">
+  <a href="https://wa.me/919673967679" class="sticky-wa" target="_blank" title="WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <a href="tel:+919673967679" class="sticky-call" title="Call">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+  </a>
+</div>
+
+<script>
+// ── Load uploaded images as base64 via fetch ──
+// Since we're in a local HTML file, we embed image paths
+// Images are referenced from the upload paths
+const logoPath = '/mnt/user-data/uploads/1774462319346_WhatsApp_Image_2026-03-17_at_22_51_09.jpeg';
+const aboutPath = '/mnt/user-data/uploads/1774462373636_image.png';
+
+// Set logo images
+document.getElementById('heroLogo').src = logoPath;
+document.getElementById('navLogo').src = logoPath;
+document.getElementById('aboutImg').src = aboutPath;
+
+// ── Winning Candidates Data ──
+const candidates = [
+  { name: 'भावनाताई घाणेकर', title: 'नगराध्यक्ष' },
+  { name: 'राजन गिरप', title: 'नगराध्यक्ष' },
+  { name: 'सुप्रिया वालावलकर', title: 'जिल्हा परिषद सदस्य' },
+  { name: 'प्रितेश राऊळ', title: 'जिल्हा परिषद सदस्य' },
+  { name: 'डॉ. अनिकेत जोगदंड', title: 'नगरसेवक' },
+  { name: 'विशाल गारवे', title: 'नगरसेवक' },
+  { name: 'सिद्धेश वेल्हाळ', title: 'नगरसेवक (अपक्ष)' },
+];
+
+const candGrid = document.getElementById('candidateGrid');
+candidates.forEach(c => {
+  candGrid.innerHTML += `
+    <div class="cand-card">
+      <div style="width:100%;aspect-ratio:1;background:linear-gradient(135deg,rgba(0,119,230,0.15),rgba(0,60,150,0.25));border-radius:16px;border:2px solid rgba(0,119,230,0.3);display:flex;align-items:center;justify-content:center;font-size:48px;margin-bottom:10px;">🏆</div>
+      <div class="cand-name">${c.name}</div>
+      <div class="cand-title">${c.title}</div>
+    </div>`;
+});
+
+// ── Network Data ──
+const network = [
+  { name: 'श्री.शशिकांत शिंदे', pos: 'राष्ट्रवादी काँग्रेस प्रदेशाध्यक्ष' },
+  { name: 'नीला सोन्स', pos: 'नगरसेवक मिरारोड' },
+  { name: 'सोमनाथ ओझर्डे', pos: 'रायगड, शिवसेना (उबाठा)' },
+  { name: 'चित्रलेखा पाटील', pos: 'अलिबाग, शेकाप प्रवक्ता' },
+  { name: 'श्री.चंद्रकांत पाटील', pos: 'भाजप' },
+  { name: 'सुप्रिया सुळे', pos: 'राष्ट्रवादी काँग्रेस खासदार' },
+  { name: 'रेश्मा तपासे', pos: 'मनसे, राज्य उपाध्यक्ष' },
+  { name: 'प्रमोद कामत', pos: 'भाजप - सिंधुदुर्ग जिल्हा' },
+  { name: 'श्रीधर भोपी', pos: 'अलिबाग, राष्ट्रवादी' },
+  { name: 'नितीनदादा सावंत', pos: 'कर्जत, शिवसेना (उबाठा)' },
+];
+
+const netGrid = document.getElementById('networkGrid');
+network.forEach(n => {
+  netGrid.innerHTML += `
+    <div class="net-card">
+      <div style="background:linear-gradient(135deg,rgba(0,119,230,0.2),rgba(0,40,120,0.3));aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:36px;">👤</div>
+      <div class="net-name">${n.name}</div>
+      <div class="net-pos">${n.pos}</div>
+    </div>`;
+});
+
+// ── Shorts tabs ──
+function showSlide(idx) {
+  document.querySelectorAll('.shorts-slide').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.shorts-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('slide-' + idx).classList.add('active');
+  document.querySelectorAll('.shorts-tab')[idx].classList.add('active');
+}
+
+// ── Scroll animations ──
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.style.animation = 'fadeUp 0.6s ease forwards'; });
+}, { threshold: 0.1 });
+document.querySelectorAll('.service-card, .cand-card, .net-card, .stat-box').forEach(el => {
+  el.style.opacity = '0';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
